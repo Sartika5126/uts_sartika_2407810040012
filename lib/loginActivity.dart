@@ -13,19 +13,48 @@ class Login extends StatelessWidget {
           children: [
             SizedBox(height: 60),
             Center(
-            child:Column(
+              child:Column(
+                children: [
+                  Image.asset("gambar/Logo.png", width: 100, height: 100),
+                  Text(
+                    "LKS MART",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset("gambar/Logo.png", width: 100, height: 100),
                 Text(
-                  "LKS MART",
+                  "Sign In",
                   style: TextStyle(
-                    fontSize: 40,
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blue,
+                    color: Colors.black,
                   ),
                 ),
               ],
             ),
+            SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Enter your ID and password to sign in!",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
