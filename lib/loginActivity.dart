@@ -12,20 +12,21 @@ class Login extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(height: 60),
-            Column(
+            Center(
+            child:Column(
               children: [
                 Image.asset("gambar/Logo.png", width: 100, height: 100),
                 Text(
                   "LKS MART",
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold,
                     color: Colors.blue,
                   ),
                 ),
               ],
-
-            )
+            ),
+            ),
           ],
         ),
       ),
