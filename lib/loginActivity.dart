@@ -9,6 +9,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool _showpassword = true;
+  bool _keepLoggedIn = false;
   final _emailcontroller = TextEditingController();
   final _passwordcontroller = TextEditingController();
   
@@ -102,11 +103,41 @@ class _LoginState extends State<Login> {
                     obscureText: _showpassword,
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.lock),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            _showpassword = !_showpassword;
+                          });
+                        },
+                        icon: Icon(
+                          _showpassword ?Icons.remove_red_eye : Icons.visibility_off,
+                        ),
+                      ),
+                      hintText: "Min 8 characters",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Checkbox(
+                    value: _keepLoggedIn, 
+                    onChanged: (value) {
+                      setState(() {
+                        _keepLoggedIn = value!;
+                      });
+                    }
+                  ),
+                  Text("Keep me logged in"),
+                ],
+              ),
+            )
             
           ],
         ),
