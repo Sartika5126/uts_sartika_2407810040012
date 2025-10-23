@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
 
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool _showpassword = true;
+  final _emailcontroller = TextEditingController();
+  final _passwordcontroller = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-         padding: const EdgeInsets.all(30),
+        padding: const EdgeInsets.all(30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -27,48 +36,78 @@ class Login extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Sign In",
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Enter your ID and password to sign in!",
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.grey,
-                  ),
-                ),
-              ],
-            ),
+
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: 8,
                 children: [
                   Text(
-                    "Email"
+                    "Sign In",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                   ),
                 ],
               ),
-            )
+            ),
+            
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Enter your ID and password to sign in!",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 8,
+                children: [
+                  Text("Email",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),),
+                  TextField(
+                    controller: _emailcontroller,
+                    decoration: InputDecoration(
+                      hintText: "email",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      )
+                    ),
+                  ),
+                  Text("Password*",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),),
+                  TextField(
+                    controller: _passwordcontroller,
+                    obscureText: _showpassword,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.lock),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            
           ],
         ),
       ),
