@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uts_sartika_2407810040012/loginActivity.dart';
+import 'package:uts_sartika_2407810040012/daftarActivity.dart';
+// import 'package:uts_sartika_2407810040012/loginActivity.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      home: Login()
+      home: Daftar()
     );
   }
 }
